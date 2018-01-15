@@ -51,6 +51,11 @@ Windows.  There are many ways to do this, but the recommeded method is with
 For Mac OSX installations:
 - Install hidapi ```pip install hidapi```
 
+### Ubuntu installation
+- $ sudo apt-get install python-dev libusb-1.0-0-dev libudev-dev
+- $ sudo pip install --upgrade setuptools
+- $ sudo pip install hidapi
+
 ### Creating Certificates and Keys
 If you need to serve the scale values over **HTTPS** (which you probably 
 should).  You will need a certificate and private key. 
