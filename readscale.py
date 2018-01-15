@@ -149,7 +149,7 @@ class USBScaleMac(USBScaleBase):
 
 
 def system_type():
-    if sys.platform == 'darwin':
+    if sys.platform == 'darwin' or sys.platform == 'linux2':
         return 'Mac'
     elif sys.platform == 'win32':
         return 'Win'
