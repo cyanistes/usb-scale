@@ -56,13 +56,15 @@ For Mac OSX installations:
 Tested on Raspbian 9 and Ubuntu Desktop 16.04
 
 #### Install hidapi
-```$ sudo apt-get install python-pip python-dev libusb-1.0-0-dev libudev-dev
+```
+$ sudo apt-get install python-pip python-dev libusb-1.0-0-dev libudev-dev
 $ sudo pip install --upgrade setuptools
 $ pip install hidapi
 ```
 
 #### Add Udev-rule
-```$ sudoedit /etc/udev/rules.d/99_dymo.rules
+```
+$ sudoedit /etc/udev/rules.d/99_dymo.rules
 
 SUBSYSTEM=="usb", ATTR{idVendor}=="0922", MODE="0666"
 ```
