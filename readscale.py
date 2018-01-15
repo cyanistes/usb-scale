@@ -110,9 +110,9 @@ class USBScaleWin(USBScaleBase):
         usb.util.dispose_resources(self.device)
 
 
-class USBScaleMac(USBScaleBase):
+class USBScaleNix(USBScaleBase):
     def __init__(self):
-        super(USBScaleMac, self).__init__()
+        super(USBScaleNix, self).__init__()
         self.device = hid.device()
         try:
             self.device.open(self.VENDOR_ID, self.PRODUCT_ID)
@@ -150,7 +150,7 @@ class USBScaleMac(USBScaleBase):
 
 def system_type():
     if sys.platform == 'darwin' or sys.platform == 'linux2':
-        return 'Mac'
+        return 'Nix'
     elif sys.platform == 'win32':
         return 'Win'
     else:
