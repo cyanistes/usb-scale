@@ -52,9 +52,14 @@ For Mac OSX installations:
 - Install hidapi ```pip install hidapi```
 
 ### Ubuntu installation
+## Install hidapi
 - $ sudo apt-get install python-dev libusb-1.0-0-dev libudev-dev
 - $ sudo pip install --upgrade setuptools
 - $ sudo pip install hidapi
+
+## Add Udev-rule
+- $ sudoedit /etc/udev/rules.d/99_dymo.rules
+- SUBSYSTEM=="usb", ATTR{idVendor}=="0922", ATTR{idProduct}=="8003", MODE="0666"
 
 ### Creating Certificates and Keys
 If you need to serve the scale values over **HTTPS** (which you probably 
