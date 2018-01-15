@@ -51,15 +51,19 @@ Windows.  There are many ways to do this, but the recommeded method is with
 For Mac OSX installations:
 - Install hidapi ```pip install hidapi```
 
-### Ubuntu installation
-## Install hidapi
-- $ sudo apt-get install python-dev libusb-1.0-0-dev libudev-dev
-- $ sudo pip install --upgrade setuptools
-- $ sudo pip install hidapi
+### Linux installation
 
-## Add Udev-rule
-- $ sudoedit /etc/udev/rules.d/99_dymo.rules
-- SUBSYSTEM=="usb", ATTR{idVendor}=="0922", ATTR{idProduct}=="8003", MODE="0666"
+Tested on Raspbian 9 and Ubuntu Desktop 16.04
+
+#### Install hidapi
+```$ sudo apt-get install python-pip python-dev libusb-1.0-0-dev libudev-dev
+$ sudo pip install --upgrade setuptools
+$ pip install hidapi```
+
+#### Add Udev-rule
+```$ sudoedit /etc/udev/rules.d/99_dymo.rules
+
+SUBSYSTEM=="usb", ATTR{idVendor}=="0922", MODE="0666"```
 
 ### Creating Certificates and Keys
 If you need to serve the scale values over **HTTPS** (which you probably 
