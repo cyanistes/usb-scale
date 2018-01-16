@@ -61,6 +61,7 @@ class WeightApp(WebSocketApplication):
         fakeweight = {
             'lbs': 'Please connect scale',
             'ozs': 'Please connect scale',
+            'grams': 'Please connect scale',
         }
         if not scale:
             self.setup_scale()
@@ -69,7 +70,9 @@ class WeightApp(WebSocketApplication):
                 scale.update()
                 weight = {
                     'lbs': scale.pounds,
-                    'ozs': scale.ounces
+                    'ozs': scale.ounces,
+                    'grams': scale.grams,
+
                 }
             except IOError:
                 self.setup_scale()
