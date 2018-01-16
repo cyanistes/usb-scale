@@ -9,6 +9,7 @@
 <h1>Scale Data</h1>
 Pounds:<input name="lbs" value="Connecting..."><br>
 Ounces:<input name="ozs" value="Connecting..."><br>
+Grams:<input name="grams" value="Connecting..."><br>
 <button name="readRecord">Record</button>
 
 </body>
@@ -24,6 +25,7 @@ Ounces:<input name="ozs" value="Connecting..."><br>
             var data = JSON.parse(evt.data);
             $("input[name=lbs").val(data['lbs']);
             $("input[name=ozs").val(data['ozs']);
+            $("input[name=grams").val(data['grams']);
             //console.log(data);
             };
         }
