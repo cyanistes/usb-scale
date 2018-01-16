@@ -51,6 +51,19 @@ class USBScaleBase(object):
         return weight
 
     @property
+    def grams(self):
+        """
+        The scale reading in grams
+        :return:
+        """
+        weight = 0
+        if self.data[2] == self.DATA_MODE_GRAMS:
+            weight = self.raw_weight
+        elif self.data[2] == self.DATA_MODE_OUNCES:
+            weight = self.raw_weight * 283.49
+        return round(weight)
+
+    @property
     def pounds(self):
         """
         The pounds portion of the scale reading
@@ -166,7 +179,7 @@ if __name__ == '__main__':
     print("Content-type: text/javascript\r\n\r\n")
 
     scale = set_scale()
-    pounds, ounces = scale.pounds, scale.ounces
+    pounds, ounces, grams = scale.pounds, scale.ounces, scale.grams
 
     # in a word, jsonp
-    print('here_is_the_weight({pounds:'+str(pounds)+',ounces:'+str(round(ounces, 2))+'})')
+    print('here_is_the_weight({pounds:'+str(pounds)+',ounces:'+str(round(ounces, 2))+',grams:'+str(grams)+'})')
