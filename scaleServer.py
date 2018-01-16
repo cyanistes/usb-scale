@@ -103,6 +103,8 @@ def parse_args():
     parser = argparse.ArgumentParser(description='Serve USB scale weights over WebSockets')
     parser.add_argument('-k', '--key', help='Server private key for SSL')
     parser.add_argument('-c', '--cert', help='Server certificate for SSL')
+    parser.add_argument('-p', '--port', default=8000, help='Port for http server')
+    parser.add_argument('-b', '--bind', default='localhost', help='Bind address')
     return parser.parse_args()
 
 
@@ -131,7 +133,7 @@ if __name__ == '__main__':
     elif validate_file(args.cert) and validate_file(args.key):
         server_kwargs.update({'keyfile': args.key,
                               'certfile': args.cert})
-    server_args.append(('localhost', 8000))
+    server_args.append((args.bind, args.port))
     server_args.append(
         Resource([
             ('/', static_wsgi_app),
