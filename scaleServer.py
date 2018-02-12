@@ -33,9 +33,9 @@ class WeightApp(WebSocketApplication):
     def on_open(self):
         print "Connected!"
         global clients
-        if clients:
-            clients += 1
-            return
+        #if clients:
+        #    clients += 1
+        #    return
         clients += 1
         self.send_weight()
 
