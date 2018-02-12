@@ -60,7 +60,7 @@ class USBScaleBase(object):
         if self.data[2] == self.DATA_MODE_GRAMS:
             weight = self.raw_weight
         elif self.data[2] == self.DATA_MODE_OUNCES:
-            weight = self.raw_weight * 283.49
+            weight = self.raw_weight * 2.8349
         return round(weight)
 
     @property
