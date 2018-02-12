@@ -20,7 +20,7 @@ Grams:<input name="grams" value="Connecting..."><br>
     setSockets();
 
     function setSockets(){
-        myWebsocket = new WebSocket('wss://localhost:8000/data');
+        myWebsocket = new WebSocket('ws://scaleserver:8000/data');
         myWebsocket.onmessage = function(evt) {
             var data = JSON.parse(evt.data);
             $("input[name=lbs").val(data['lbs']);
